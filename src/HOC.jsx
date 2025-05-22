@@ -21,6 +21,10 @@ export default function withToggles(WrappedComponent) {
 
         {isOpen && <WrappedComponent {...props} items={displayItems} />}
 
+        {/* The HOC withToggles takes WrappedComponent as an argument (actual it's a parameter, but we're referring to what’s passed in when the function withToggles is calling) and returns a new component - List and props of the List component will be passed to the WrappedComponent => WrappedComponent: ProductList, CompanyList when we call withToggles(...) */}
+
+        {/* define the ProductListWithToggle variable (this variable has title and items props that contain the data need to be rendered) => which will call withToggles function and pass in the ProductList component => forward these props of ProductListWithToggle component to ProductList component (WrappedComponent) => add logic and render data */}
+
         <button onClick={() => setIsCollapsed((isCollapsed) => !isCollapsed)}>{isCollapsed ? `Show all ${props.items.length}` : "Show less"}</button>
       </div>
     );
